@@ -16,7 +16,18 @@ public class UsuarioService {
 
     //Métodos de validação
     //Validar cadastro de usuario-> chama o método e cadastra no banco convertendo o dtorequest para entidade bruta
-    public void cadastrarUsua(UsuarioRequestDTO usuarioRequestDTO) throws SQLException {
+
+    public String autenticarUsuario(Usuario usuario) throws SQLException {
+        boolean autenticado = usuarioDao.autenticarUsuario(usuario);
+        if (autenticado) {
+            return "Usuário logado com sucesso";
+        } else {
+            return "Usuário e/ou senha inválidos";
+        }
+    }
+
+
+    public void cadastrarUsuario(UsuarioRequestDTO usuarioRequestDTO) throws SQLException {
         if (usuarioRequestDTO.getNomeUsua() == null && usuarioRequestDTO.getProfissaoAntigaUsua() == null
         && usuarioRequestDTO.getAreaInteresseUsua() == null){
             throw new IllegalArgumentException("Dados obrigatórios!");

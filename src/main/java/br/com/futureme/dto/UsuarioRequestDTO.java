@@ -9,8 +9,8 @@ import br.com.futureme.model.Usuario;
 public class UsuarioRequestDTO {
 
 
-    private String login;
-    private String senha;
+    private String loginUsua;
+    private String senhaUsua;
     private String nomeUsua;
     private String cpfUsua;
     private String emailUsua;
@@ -21,31 +21,31 @@ public class UsuarioRequestDTO {
     public UsuarioRequestDTO() {
     }
 
-    public UsuarioRequestDTO(String areaInteresseUsua, String profissaoAntigaUsua, String telefoneUsua, String emailUsua, String cpfUsua, String nomeUsua, String senha, String login) {
+    public UsuarioRequestDTO(String areaInteresseUsua, String profissaoAntigaUsua, String telefoneUsua, String emailUsua, String cpfUsua, String nomeUsua, String senhaUsua, String loginUsua) {
         this.areaInteresseUsua = areaInteresseUsua;
         this.profissaoAntigaUsua = profissaoAntigaUsua;
         this.telefoneUsua = telefoneUsua;
         this.emailUsua = emailUsua;
         this.cpfUsua = cpfUsua;
         this.nomeUsua = nomeUsua;
-        this.senha = senha;
-        this.login = login;
+        this.senhaUsua = senhaUsua;
+        this.loginUsua = loginUsua;
     }
 
-    public String getLogin() {
-        return login;
+    public String getLoginUsua() {
+        return loginUsua;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLoginUsua(String login) {
+        this.loginUsua = login;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getSenhaUsua() {
+        return senhaUsua;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setSenhaUsua(String senha) {
+        this.senhaUsua = senha;
     }
 
     public String getNomeUsua() {
@@ -106,14 +106,9 @@ public class UsuarioRequestDTO {
         return new UsuarioRequestDTO(usuario.getLoginUsua(), usuario.getSenhaUsua(), usuario.getNomeUsua(),usuario.getCpfUsua(), usuario.getEmailUsua(), usuario.getTelefoneUsua(), usuario.getProfissaoAntigaUsua(), usuario.getAreaInteresseUsua() );
     }
 
-    /**
-     * Converte este DTO em objeto Usuario.
-     *
-     * @param dto DTO de usuário
-     * @return Objeto Usuario correspondente
-     */
+
     public Usuario convertToUsuario(UsuarioRequestDTO dto){
-        return new Usuario( dto.login, dto.senha, dto.nomeUsua,dto.cpfUsua, dto.emailUsua,dto.telefoneUsua,dto.profissaoAntigaUsua,dto.areaInteresseUsua);
+        return new Usuario( dto.loginUsua, dto.senhaUsua, dto.nomeUsua,dto.cpfUsua, dto.emailUsua,dto.telefoneUsua,dto.profissaoAntigaUsua,dto.areaInteresseUsua);
     }
 
 }

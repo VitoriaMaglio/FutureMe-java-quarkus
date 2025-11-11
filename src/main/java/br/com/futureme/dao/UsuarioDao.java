@@ -14,6 +14,26 @@ public class UsuarioDao {
     @Inject
     DataSource dataSource;//objeto de conexão com o banco de dados, garante uma única instância
 
+
+    public boolean autenticarUsuario(Usuario usuarioLogin) throws SQLException {
+        String sql = "SELECT  FROM usuario WHERE loginUsua = ? AND senhaUsua = ?";
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, usuarioLogin.getLoginUsua());
+            ps.setString(2, usuarioLogin.getSenhaUsua());
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    int count = rs.getInt(1);
+                    return count > 0; // se achou um usuário, retorna true
+                }
+            }
+        }
+
+        return false; // não encontrou usuário
+    }
+
     public void cadastrarUsuario(Usuario usuario) throws SQLException {
         String sql = "INSERT INTO usuario " +
                 "(loginUsua, senhaUsua, nomeUsua, cpfUsua, emailUsua, telefoneUsua, profissaoAntigaUsua, areaInteresseUsua) " +
@@ -21,7 +41,6 @@ public class UsuarioDao {
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-
             ps.setString(1, usuario.getLoginUsua());
             ps.setString(2, usuario.getSenhaUsua());
             ps.setString(3, usuario.getNomeUsua());
@@ -34,6 +53,8 @@ public class UsuarioDao {
             ps.executeUpdate();
         }
     }
+
+
 
     public Usuario buscarLogin(String login) throws SQLException{
         String sql = "SELECT * FROM USUARIO WHERE LOGINUSUA = ?";
