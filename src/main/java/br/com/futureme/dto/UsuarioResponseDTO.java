@@ -71,7 +71,7 @@ public class UsuarioResponseDTO {
      * @param usuario Entidade Usuario
      * @return DTO correspondente
      */
-    public UsuarioResponseDTO convertToUsuarioResponseDto(Usuario usuario){
+    public static UsuarioResponseDTO convertToUsuarioResponseDto(Usuario usuario){
         UsuarioResponseDTO dto = new UsuarioResponseDTO();
         dto.setLogin(usuario.getLoginUsua());
         dto.setNomeUsua(usuario.getNomeUsua());
