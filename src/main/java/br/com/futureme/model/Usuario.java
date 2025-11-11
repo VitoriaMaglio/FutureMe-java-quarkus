@@ -5,7 +5,6 @@ public class Usuario {
     private int idUsua;
     private String loginUsua;
     private String senhaUsua;
-
     private String nomeUsua;
     private String cpfUsua;
     private String emailUsua;
