@@ -1,9 +1,6 @@
 package br.com.futureme.resource;
-
 import br.com.futureme.dto.RotinaRequestDTO;
 import br.com.futureme.dto.RotinaResponseDTO;
-import br.com.futureme.dto.UsuarioRequestDTO;
-import br.com.futureme.dto.UsuarioResponseDTO;
 import br.com.futureme.service.RotinaService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -33,7 +30,6 @@ public class RotinaResource {
                     .build();
         }
     }
-
 
     @GET
     @Path("/{loginUsua}")

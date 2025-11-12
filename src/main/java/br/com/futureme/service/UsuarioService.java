@@ -67,5 +67,7 @@ public class UsuarioService {
     }
     //Métodos que seram chamados nos resources para serem validados e entrar no banco
 
+
+
 }
 
