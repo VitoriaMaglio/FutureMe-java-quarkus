@@ -75,13 +75,13 @@ public class UsuarioDao {
         return null;
     }
 
-    public void atualizarUsuario(int idUsua, String profissao, String areaInteresse)throws SQLException {
-        String sql = "UPDATE usuario SET profissaoAntigaUsua = ?, areaInteresseUsua = ? WHERE id = ?";
+    public void atualizarUsuario(String loginUsua, String profissao, String areaInteresse)throws SQLException {
+        String sql = "UPDATE usuario SET profissaoAntigaUsua = ?, areaInteresseUsua = ? WHERE loginUsua = ?";
         try (Connection conn = dataSource.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, profissao);
             ps.setString(2,areaInteresse);
-            ps.setInt(3, idUsua);
+            ps.setString(3, loginUsua);
             ps.executeUpdate();
 
         }

@@ -55,11 +55,9 @@ public class UsuarioService {
         }
         usuario.setProfissaoAntigaUsua(request.getProfissaoAntigaUsua());
         usuario.setAreaInteresseUsua(request.getAreaInteresseUsua());
-        usuarioDao.atualizarUsuario( usuario.getIdUsua(),                      // id do usuário
+        usuarioDao.atualizarUsuario( usuario.getLoginUsua(),                      // id do usuário
                 request.getProfissaoAntigaUsua(),         // nova profissão
                 request.getAreaInteresseUsua() );
-
-        // 4️⃣ Converter para DTO de resposta
         return UsuarioResponseDTO.convertToUsuarioResponseDto(usuario);
     }
 
