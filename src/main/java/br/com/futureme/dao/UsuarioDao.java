@@ -66,6 +66,7 @@ public class UsuarioDao {
                 Usuario usuario = new Usuario();
                 usuario.setLoginUsua(rs.getString("loginUsua"));
                 usuario.setNomeUsua(rs.getString("nomeUsua"));
+                usuario.setEmailUsua(rs.getString("emailUsua"));
                 usuario.setProfissaoAntigaUsua(rs.getString("profissaoAntigaUsua"));
                 usuario.setAreaInteresseUsua(rs.getString("areaInteresseUsua"));
                 return usuario;

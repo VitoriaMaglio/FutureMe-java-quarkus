@@ -39,7 +39,6 @@ public class UsuarioResource {
     }
 
 
-
     @GET
     @Path("/{loginUsua}")
     @Produces(MediaType.APPLICATION_JSON)

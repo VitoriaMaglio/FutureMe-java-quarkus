@@ -29,18 +29,21 @@ public class UsuarioService {
 
     public void cadastrarUsuario(UsuarioRequestDTO usuarioRequestDTO) throws SQLException {
         if (usuarioRequestDTO.getNomeUsua() == null && usuarioRequestDTO.getProfissaoAntigaUsua() == null
-        && usuarioRequestDTO.getAreaInteresseUsua() == null){
+                && usuarioRequestDTO.getAreaInteresseUsua() == null) {
             throw new IllegalArgumentException("Dados obrigatórios!");
+        } else {
+            usuarioDao.cadastrarUsuario(usuarioRequestDTO.convertToUsuario(usuarioRequestDTO));
         }
-        usuarioDao.cadastrarUsuario(usuarioRequestDTO.convertToUsuario(usuarioRequestDTO));
     }
 
     public UsuarioResponseDTO buscarLogin(String login) throws SQLException {
-        UsuarioResponseDTO dto = new UsuarioResponseDTO();
-        if (dto.getLogin() != null){
-        return dto.convertToUsuarioResponseDto(usuarioDao.buscarLogin(login));
-        }else{
-            throw new NullPointerException ("Login inválido!");
+        Usuario usuario = usuarioDao.buscarLogin(login);
+        if (usuario != null) {
+            // converte o objeto Usuario retornado do DAO em DTO
+            return new UsuarioResponseDTO().convertToUsuarioResponseDto(usuario);
+        } else {
+            // se o login não for encontrado
+            throw new NullPointerException("Login inválido!");
         }
     }
 
