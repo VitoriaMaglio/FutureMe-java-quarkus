@@ -47,6 +47,7 @@ public class UsuarioService {
         }
     }
 
+
     public UsuarioResponseDTO alterarUsuario(String login, UsuarioRequestDTO request) throws SQLException {
 
         Usuario usuario = usuarioDao.buscarLogin(login);

@@ -74,6 +74,8 @@ public class RotinaRequestDTO {
         rotina.setHorasSono(this.horasSono);
         rotina.setHorasTrab(this.horasTrab);
         rotina.setPausasDiarias(this.pausasDiarias);
+        usuario.setLoginUsua(getUsuario().getLoginUsua());
+        rotina.setUsuario(usuario);
         return rotina;
     }
 }

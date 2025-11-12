@@ -2,7 +2,6 @@ package br.com.futureme.resource;
 
 import br.com.futureme.dto.UsuarioRequestDTO;
 import br.com.futureme.dto.UsuarioResponseDTO;
-import br.com.futureme.model.Usuario;
 import br.com.futureme.service.UsuarioService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
