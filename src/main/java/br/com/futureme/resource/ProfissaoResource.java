@@ -1,5 +1,6 @@
 package br.com.futureme.resource;
 
+import br.com.futureme.dto.ProfissaoRecomendacaoDTO;
 import br.com.futureme.model.Usuario;
 import br.com.futureme.service.ProfissaoService;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -24,7 +25,7 @@ public class ProfissaoResource {
             System.out.println("🟦 Área recebida: " + usuario.getAreaInteresseUsua());
 
             try {
-            List<String> recomendacoes = profissaoService.gerarRecomendacoes(usuario);
+                List<ProfissaoRecomendacaoDTO> recomendacoes = profissaoService.gerarRecomendacoes(usuario);
             if (recomendacoes.isEmpty()) {
                 return Response.status(Response.Status.NOT_FOUND)
                         .entity("Nenhuma profissão encontrada para a área: " + usuario.getAreaInteresseUsua())
