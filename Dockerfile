@@ -1,7 +1,7 @@
 # ===========================
 # 1° Stage: Build (Maven)
 # ===========================
-FROM maven:3.9.6-eclipse-temurin-17 AS build
+FROM maven:3.9.6-eclipse-temurin-21 AS build
 WORKDIR /build
 
 # Copia o pom.xml e baixa dependências (cache)
@@ -17,7 +17,7 @@ RUN mvn package -DskipTests -Dquarkus.package.type=uber-jar
 # ===========================
 # 2° Stage: Runtime
 # ===========================
-FROM eclipse-temurin:17-jdk
+FROM eclipse-temurin:21-jdk
 WORKDIR /app
 
 # Copia o jar do estágio anterior
