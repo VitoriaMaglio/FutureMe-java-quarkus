@@ -3,11 +3,10 @@ package br.com.futureme.model;
 public class Rotina {
 
     private int idRotina;
-    private Usuario usuario; // FK → Usuario
+    private Usuario usuario;
     private int horasSono;
     private int horasTrab;
     private int pausasDiarias;
-
 
     public Rotina() {
     }

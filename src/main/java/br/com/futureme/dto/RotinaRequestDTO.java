@@ -5,7 +5,7 @@ import br.com.futureme.model.Usuario;
 
 public class RotinaRequestDTO {
 
-    private UsuarioRelacionaDTO usuario; // login e senha do usuário
+    private UsuarioRelacionaDTO usuario;
     private int horasSono;
     private int horasTrab;
     private int pausasDiarias;
@@ -51,11 +51,10 @@ public class RotinaRequestDTO {
         this.pausasDiarias = pausasDiarias;
     }
 
-    // 🔁 ENTIDADE → DTO
     public static RotinaRequestDTO convertToRotinaRequestDTO(Rotina rotina) {
         UsuarioRelacionaDTO usuarioDto = new UsuarioRelacionaDTO(
                 rotina.getUsuario().getLoginUsua(),
-                rotina.getUsuario().getSenhaUsua() // ⚠️ não inclua senha em responses públicas
+                rotina.getUsuario().getSenhaUsua()
         );
 
         return new RotinaRequestDTO(
@@ -66,8 +65,6 @@ public class RotinaRequestDTO {
         );
     }
 
-    // 🔁 DTO → ENTIDADE
-    // Aqui você precisa receber o Usuario que já foi buscado no banco (pelo login/senha)
     public Rotina convertToRotina(Usuario usuario) {
         Rotina rotina = new Rotina();
         rotina.setUsuario(usuario);

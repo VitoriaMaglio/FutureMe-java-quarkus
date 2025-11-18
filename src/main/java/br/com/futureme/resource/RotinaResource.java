@@ -26,7 +26,7 @@ public class RotinaResource {
         } catch (SQLException e) {
             e.printStackTrace();
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("Erro ao cadastrar rotina: " + e.getMessage()) // <<< também envia pro Postman
+                    .entity("Erro ao cadastrar rotina: " + e.getMessage())
                     .build();
         }
     }

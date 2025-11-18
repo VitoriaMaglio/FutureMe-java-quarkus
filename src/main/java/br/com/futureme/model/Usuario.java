@@ -16,7 +16,6 @@ public class Usuario {
     public Usuario() {
     }
 
-
     public Usuario(String login, String senha) {
         this.loginUsua = login;
         this.senhaUsua = senha;
@@ -54,7 +53,6 @@ public class Usuario {
 
     //getters e setters
 
-
     public int getIdUsua() {
         return idUsua;
     }
@@ -78,7 +76,6 @@ public class Usuario {
     public void setSenhaUsua(String senhaUsua) {
         this.senhaUsua = senhaUsua;
     }
-
 
     public String getNomeUsua() {
         return nomeUsua;

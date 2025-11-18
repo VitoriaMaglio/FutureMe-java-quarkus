@@ -8,7 +8,6 @@ import br.com.futureme.model.Usuario;
  */
 public class UsuarioRequestDTO {
 
-
     private String loginUsua;
     private String senhaUsua;
     private String nomeUsua;
@@ -105,7 +104,6 @@ public class UsuarioRequestDTO {
     public UsuarioRequestDTO convertToUsuarioRequestDTO(Usuario usuario){
         return new UsuarioRequestDTO(usuario.getLoginUsua(), usuario.getSenhaUsua(), usuario.getNomeUsua(),usuario.getCpfUsua(), usuario.getEmailUsua(), usuario.getTelefoneUsua(), usuario.getProfissaoAntigaUsua(), usuario.getAreaInteresseUsua() );
     }
-
 
     public Usuario convertToUsuario(UsuarioRequestDTO dto){
         return new Usuario( dto.loginUsua, dto.senhaUsua, dto.nomeUsua,dto.cpfUsua, dto.emailUsua,dto.telefoneUsua,dto.profissaoAntigaUsua,dto.areaInteresseUsua);

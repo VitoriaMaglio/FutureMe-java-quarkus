@@ -3,8 +3,6 @@ package br.com.futureme.dto;
 import br.com.futureme.model.Recomendacao;
 
 public class ProfissaoRecomendacaoDTO {
-
-
     private String nome;
     private String descricao;
     private Recomendacao recomendacao;

@@ -16,13 +16,12 @@ public class ProfissaoService {
     public List<ProfissaoRecomendacaoDTO> gerarRecomendacoes(Usuario usuario) throws SQLException {
         String area = usuario.getAreaInteresseUsua();
 
-        // teste rápido — remove se funcionar
         if (area == null || area.isBlank()) {
-            System.out.println("⚠️ Nenhuma área recebida do usuário, forçando teste");
+            System.out.println(" Nenhuma área recebida do usuário, forçando teste");
             area = "Educação e Tecnologia";
         }
 
-        System.out.println("🟩 Buscando profissões da área: " + area);
+        System.out.println("Buscando profissões da área: " + area);
         return profissaoDao.buscarProfissoesPorArea(area);
     }
 

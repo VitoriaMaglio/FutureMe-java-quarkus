@@ -18,7 +18,6 @@ public class ProfissaoDao {
     @Inject
     DataSource dataSource;
 
-
         public List<ProfissaoRecomendacaoDTO> buscarProfissoesPorArea(String areaInteresse) throws SQLException {
             List<ProfissaoRecomendacaoDTO> resultados = new ArrayList<>();
 
@@ -40,27 +39,16 @@ public class ProfissaoDao {
                 ResultSet rs = ps.executeQuery();
 
                 while (rs.next()) {
-                    // 🔹 Lê dados da profissão
-
                     String nome = rs.getString("nome");
                     String descricao = rs.getString("descricao");
-
-                    // 🔹 Lê dados da recomendação
-
                     String recomendacaoTexto = rs.getString("recomendacao");
-
-                    // 🔹 Cria objeto Recomendacao com os três parâmetros
                     Recomendacao recomendacao = new Recomendacao(recomendacaoTexto);
-
-                    // 🔹 Cria o DTO completo
                     resultados.add(new ProfissaoRecomendacaoDTO(nome, descricao, recomendacao));
                 }
             }
-
             return resultados;
 
         }
-
 }
 
 

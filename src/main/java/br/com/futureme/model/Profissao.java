@@ -8,7 +8,6 @@ public class Profissao {
     private String competencias;
     private String nivelDemanda;
 
-
     public Profissao() {
     }
 

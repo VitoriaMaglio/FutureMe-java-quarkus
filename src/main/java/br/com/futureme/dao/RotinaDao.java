@@ -4,7 +4,6 @@ import br.com.futureme.model.Rotina;
 import br.com.futureme.model.Usuario;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,9 +20,8 @@ public class RotinaDao {
         String inserirRotinaSql = "INSERT INTO ROTINA (idUsua, horasSono, horasTrab, pausasDiarias) " +
                 "VALUES (?, ?, ?, ?)";
 
-
         try (Connection conn = dataSource.getConnection()) {
-            // 1️⃣ Buscar o idUsua com base no login
+
             int idUsua = -1;
             try (PreparedStatement psBuscar = conn.prepareStatement(buscarIdSql)) {
                 psBuscar.setString(1, rotina.getUsuario().getLoginUsua());
@@ -35,7 +33,6 @@ public class RotinaDao {
                 }
             }
 
-            // 2️⃣ Inserir a rotina usando o idUsua encontrado
             try (PreparedStatement psInserir = conn.prepareStatement(inserirRotinaSql)) {
                 psInserir.setInt(1, idUsua);
                 psInserir.setInt(2, rotina.getHorasSono());
@@ -79,7 +76,6 @@ public class RotinaDao {
         return null;
     }
 
-
     public void atualizarRotina(String loginUsua, int horasSono, int horasTrab, int pausas) throws SQLException {
         String sql = """
         UPDATE rotina
@@ -104,7 +100,6 @@ public class RotinaDao {
         }
     }
 
-
     public void deletarRotina(String loginUsua) throws SQLException {
         String sql = """
         DELETE FROM rotina
@@ -124,6 +119,4 @@ public class RotinaDao {
             }
         }
     }
-
-
 }

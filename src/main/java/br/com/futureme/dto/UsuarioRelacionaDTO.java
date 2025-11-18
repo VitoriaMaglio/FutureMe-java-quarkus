@@ -16,8 +16,6 @@ public class UsuarioRelacionaDTO {
         this.senhaUsua = senhaUsua;
     }
 
-
-
     public String getLoginUsua() {
         return loginUsua;
     }

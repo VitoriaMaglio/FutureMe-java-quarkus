@@ -1,5 +1,4 @@
 package br.com.futureme.service;
-
 import br.com.futureme.dao.RotinaDao;
 import br.com.futureme.dto.RotinaRequestDTO;
 import br.com.futureme.dto.RotinaResponseDTO;
@@ -7,11 +6,9 @@ import br.com.futureme.model.Rotina;
 import br.com.futureme.model.Usuario;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-
 import java.sql.SQLException;
 @ApplicationScoped
 public class RotinaService {
-
 
     @Inject
     RotinaDao rotinaDao;
@@ -22,11 +19,8 @@ public class RotinaService {
     }
 
     public RotinaResponseDTO buscarRotina(String login) throws SQLException {
-        // Chama o DAO para buscar a rotina pelo login do usuário
         Rotina rotina = rotinaDao.buscarRotina(login);
-
         if (rotina != null) {
-            // Converte a entidade para DTO antes de retornar
             return new RotinaResponseDTO().convertToRotinaResponseDto(rotina);
         } else {
             throw new NullPointerException("Nenhuma rotina encontrada para o login informado!");
@@ -35,15 +29,10 @@ public class RotinaService {
 
     public RotinaResponseDTO atualizarRotina(String login, RotinaRequestDTO dto) throws SQLException {
         rotinaDao.atualizarRotina(login, dto.getHorasSono(), dto.getHorasTrab(), dto.getPausasDiarias());
-        return buscarRotina(login); // retorna a rotina atualizada
+        return buscarRotina(login);
     }
 
     public void deletarRotina(String login) throws SQLException {
         rotinaDao.deletarRotina(login);
     }
-
-
-
-
-
 }

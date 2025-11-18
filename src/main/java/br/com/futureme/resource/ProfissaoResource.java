@@ -20,10 +20,8 @@ public class ProfissaoResource {
 
     @POST
     public Response gerarRecomendacoes(Usuario usuario) {
-
-            System.out.println("🟨 JSON recebido: " + usuario);
-            System.out.println("🟦 Área recebida: " + usuario.getAreaInteresseUsua());
-
+            System.out.println(" JSON recebido: " + usuario);
+            System.out.println(" Área recebida: " + usuario.getAreaInteresseUsua());
             try {
                 List<ProfissaoRecomendacaoDTO> recomendacoes = profissaoService.gerarRecomendacoes(usuario);
             if (recomendacoes.isEmpty()) {

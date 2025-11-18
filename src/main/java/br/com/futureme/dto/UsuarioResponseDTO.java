@@ -14,7 +14,6 @@ public class UsuarioResponseDTO {
     private String profissaoAntigaUsua;
     private String areaInteresseUsua;
 
-
     public UsuarioResponseDTO() {
     }
 

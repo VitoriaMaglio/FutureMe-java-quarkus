@@ -32,7 +32,7 @@ public class UsuarioResource {
         } catch (SQLException e) {
             e.printStackTrace();
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity("Erro ao cadastrar usuário: " + e.getMessage()) // <<< também envia pro Postman
+                    .entity("Erro ao cadastrar usuário: " + e.getMessage())
                     .build();
         }
     }
@@ -81,6 +81,4 @@ public class UsuarioResource {
                     .entity("Erro ao excluir usuário: " + e.getMessage()).build();
         }
     }
-
-
 }

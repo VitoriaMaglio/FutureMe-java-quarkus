@@ -10,7 +10,6 @@ public class RotinaResponseDTO {
     private int horasTrab;
     private int pausasDiarias;
 
-
     public RotinaResponseDTO() {
     }
 
@@ -53,7 +52,6 @@ public class RotinaResponseDTO {
         this.pausasDiarias = pausasDiarias;
     }
 
-    // 🔁 ENTIDADE → DTO      método que converte uma entidade em um Dto para enviar pro front( está voltando )
     public static RotinaResponseDTO convertToRotinaResponseDto(Rotina rotina) {
         Usuario usuario = rotina.getUsuario();
 
@@ -69,7 +67,6 @@ public class RotinaResponseDTO {
         );
     }
 
-    // 🔁 DTO → ENTIDADE  converte os dados que vieram do front em uma entidade pronta para ser salva no banco
     public Rotina convertToRotina(Usuario usuario) {
         Rotina rotina = new Rotina();
         rotina.setUsuario(usuario);
