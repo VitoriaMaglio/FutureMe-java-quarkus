@@ -41,7 +41,7 @@ Antes de rodar o projeto, você precisará de:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/futureme.git
+git clone https://github.com/VitoriaMaglio/FutureMe-java-quarkus.git
 cd futureme
 ```
 
