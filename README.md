@@ -1,66 +1,82 @@
-# web-api
+# FutureMe - Web API em Java com Quarkus
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Descrição
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+O **FutureMe** é um projeto em **Java** utilizando o framework **Quarkus**, com o objetivo de fornecer uma API REST para gerenciamento de usuários, rotinas e profissões. A aplicação foi desenvolvida para demonstrar boas práticas em desenvolvimento backend, incluindo persistência de dados, rotas REST e deploy em nuvem.
 
-## Running the application in dev mode
+Principais funcionalidades:
 
-You can run your application in dev mode that enables live coding using:
+* Cadastro de usuários.
+* Consulta de rotinas.
+* Gerenciamento de profissões.
+* Estrutura pronta para integração com front-end.
 
-```shell script
-./mvnw quarkus:dev
+---
+
+## Tecnologias Utilizadas
+
+* Java 17
+* Quarkus
+* Maven
+* JPA / Hibernate
+* Oracle 
+* Docker
+* Render (para deploy em nuvem)
+
+---
+
+## Pré-requisitos
+
+Antes de rodar o projeto, você precisará de:
+
+* Java 17 instalado.
+* Maven instalado.
+* Banco de dados configurado.
+* Docker.
+
+---
+
+## Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/futureme.git
+cd futureme
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+2. Configure o banco de dados no arquivo `application.properties`:
 
-## Packaging and running the application
-
-The application can be packaged using:
-
-```shell script
-./mvnw package
+```properties
+quarkus.datasource.db-kind=
+quarkus.datasource.jdbc.url=
+quarkus.datasource.username=seu_usuario
+quarkus.datasource.password=sua_senha
 ```
 
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+3. Compile o projeto:
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
-
-If you want to build an _über-jar_, execute the following command:
-
-```shell script
-./mvnw package -Dquarkus.package.jar.type=uber-jar
+```bash
+mvn clean package -DskipTests
 ```
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+4. Rode localmente:
 
-## Creating a native executable
-
-You can create a native executable using:
-
-```shell script
-./mvnw package -Dnative
+```bash
+mvn quarkus:dev
 ```
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
+O servidor rodará por padrão em `http://localhost:8080`.
 
-```shell script
-./mvnw package -Dnative -Dquarkus.native.container-build=true
-```
+---
 
-You can then execute your native executable with: `./target/web-api-1.0.0-SNAPSHOT-runner`
 
-If you want to learn more about building native executables, please consult <https://quarkus.io/guides/maven-tooling>.
 
-## Related Guides
+## Testes
 
-- RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing Jakarta REST and more
+A API pode ser testada usando **Postman** ou **Insomnia**. Certifique-se de enviar requisições para `http://localhost:8080`.
 
-## Provided Code
+---
 
-### RESTEasy JAX-RS
 
-Easily start your RESTful Web Services
 
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
